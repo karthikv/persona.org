@@ -1,3 +1,5 @@
+var persona = {};
+
 $(function() {
   // Browser ID login
   $('#login').click(function() {
@@ -8,4 +10,7 @@ $(function() {
       }
     });
   });
+
+  persona.apps = Apps();
+  persona.apps.getInstalled();
 });
