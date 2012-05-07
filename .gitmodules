@@ -1,0 +1,3 @@
+[submodule "public/javascripts/lib/shipyard"]
+	path = public/javascripts/lib/shipyard
+	url = git://github.com/seanmonstar/Shipyard

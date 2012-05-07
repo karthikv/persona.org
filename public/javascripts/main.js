@@ -11,6 +11,5 @@ $(function() {
     });
   });
 
-  persona.apps = Apps();
-  persona.apps.getInstalled();
+  //persona.apps = require('apps');
 });
