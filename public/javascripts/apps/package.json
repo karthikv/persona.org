@@ -3,6 +3,6 @@
 	"shipyard": {
 		"app": "./",
 		"target": "../apps-min.js",
-		"tests": "./tests"
+		"test": "./tests"
 	}
 }

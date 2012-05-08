@@ -34,7 +34,7 @@ exports.getInstalled = function getInstalled() {
         var installedApps = gotApps(pending.result);
         emitter.apps = installedApps;
         emitter.result = pending.result;
-        emitter.emit('success', pending.apps);
+        emitter.emit('success', emitter.apps);
     };
 
     pending.onerror = function () {
