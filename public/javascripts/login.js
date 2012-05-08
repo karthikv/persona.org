@@ -1,4 +1,4 @@
-var persona = {};
+(function($) {
 
 $(function() {
   // Browser ID login
@@ -10,6 +10,6 @@ $(function() {
       }
     });
   });
-
-  //persona.apps = require('apps');
 });
+
+})(jQuery);
