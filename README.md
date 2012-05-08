@@ -44,8 +44,18 @@ Install node by using brew or through the website http://nodejs.org/#download
 
 We copied the client-side translation steps from i18n-abide, but had to tweak it a little to work. Eventually we should converge on a set of scripts and share them. Mainly, I changed the path to po2json in compile_json.sh, I think that's the only tweak.
 
-> node app.js
+> NODE_ENV=development node app.js
+
+When deploying, this is __important__:
+
+> NODE_ENV=production node app.js
 
 ## Run the Tests
 
 > make test
+
+## Building with Shipyard
+
+To minify the JavaScript using Shipyard:
+
+> make shipyard
