@@ -12,11 +12,11 @@ module.exports = function(app) {
 
   // Home/main
   app.get('/', function(req, res) {
-    res.render('index', { title: 'Persona.org' });
+    res.render('index', { title: 'Persona.org', debug: app.set('debug') });
   });
 
   // Dashboard
   app.get('/dashboard', isAuthenticated, function(req, res) {
-    res.render('dashboard', { title: 'Dashboard' });
+    res.render('dashboard', { title: 'Dashboard', debug: app.set('debug') });
   });
 };

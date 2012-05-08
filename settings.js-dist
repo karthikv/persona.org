@@ -14,6 +14,7 @@ module.exports = function(app, configurations, express) {
 
   // Configuration
   app.configure(function(){
+	app.set('debug', true);
     app.use(i18n.abide({
       supported_languages: ['en-US', 'de', 'es', 'db-LB', 'it-CH'],
       default_lang: 'en-US',
@@ -38,11 +39,12 @@ module.exports = function(app, configurations, express) {
     app.use(app.router);
   });
 
-  app.configure('development, test', function(){
+  app.configure('development', 'test', function(){
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   });
 
   app.configure('production', function(){
+	app.set('debug', false);
     app.use(express.errorHandler());
   });
 
