@@ -2,6 +2,7 @@
 	"name": "apps",
 	"shipyard": {
 		"app": "./",
+		"mini_require": true,
 		"target": "../apps-min.js",
 		"test": "./tests"
 	}

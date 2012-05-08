@@ -4,3 +4,4 @@ node_modules
 npm-debug.log
 locale
 public/javascripts/i18n
+apps-min.js
