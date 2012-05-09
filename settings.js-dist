@@ -44,9 +44,13 @@ module.exports = function(app, configurations, express) {
   });
 
   app.configure('production', function(){
-	app.set('DEBUG', false);
+    app.set('DEBUG', false);
     app.use(express.errorHandler());
   });
+
+  app.helpers({
+    DEBUG: app.set('DEBUG')
+  })
 
   app.dynamicHelpers({
     session: function (req, res) {
