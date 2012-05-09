@@ -5,7 +5,7 @@ var app = express.createServer();
 var settings = require('./settings')(app, configurations, express);
 
 // Routes
-require('./routes')(app);
+require('./routes')(app, settings);
 require('./routes/auth')(app, settings);
 
-app.listen(process.env['PORT'] || settings.options.port);
+app.listen(process.env.PORT || settings.options.port);

@@ -33,7 +33,7 @@ function getIconForSize(targetSize, app) {
   return DEFAULT_ICON;
 }
 
-$(document).ready(function() {
+$(function() {
   /* IconGrid */
   var appCount = 0;
 

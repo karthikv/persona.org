@@ -38,11 +38,13 @@ module.exports = function(app, configurations, express) {
     app.use(app.router);
   });
 
-  app.configure('development, test', function(){
+  app.configure('development', 'test', function(){
+    app.set('DEBUG', true);
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
   });
 
   app.configure('production', function(){
+	app.set('DEBUG', false);
     app.use(express.errorHandler());
   });
 

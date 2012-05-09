@@ -5,8 +5,13 @@ block dashboard_header
 
 block content
   h1= gettext('Apps')
-  .container#dashboard
-    #apps.dashboardclipper
-      .dashboard
-        #help
-          !{format(gettext('You have no apps installed. Apps are available in the <a %s>Marketplace</a>'), [' href="https://apps.mozillalabs.com/appdir/" target="_blank"'])}
+  
+  #dashboard
+    #help
+      !{format(gettext('You have no apps installed. Apps are available in the <a %s>Marketplace</a>'), [' href="https://apps.mozillalabs.com/appdir/" target="_blank"'])}
+
+block scripts
+    if DEBUG
+        script(src='/javascripts/lib/shipyard/scripts/require.js', data-main='/javascripts/apps')
+    else
+        script(src='/javascripts/apps-min.js')

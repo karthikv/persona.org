@@ -1,3 +1,5 @@
+(function($) {
+
 $(function() {
   // Browser ID login
   $('#login').click(function() {
@@ -9,3 +11,5 @@ $(function() {
     });
   });
 });
+
+})(jQuery);
