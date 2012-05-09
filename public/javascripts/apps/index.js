@@ -1,7 +1,7 @@
 var AppsController = require('./controllers/AppsController');
 
 exports.init = function init() {
-    new AppsController();
+  new AppsController();
 };
 
 exports.init();

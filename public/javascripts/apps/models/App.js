@@ -1,12 +1,12 @@
 var Class = require('shipyard/class/Class'),
-    Observable = require('shipyard/class/Observable');
+  Observable = require('shipyard/class/Observable');
 
 module.exports = new Class({
 
-    Extends: Observable,
+  Extends: Observable,
 
-    toString: function() {
-        return '<App>';
-    }
+  toString: function() {
+    return '<App>';
+  }
 
 });

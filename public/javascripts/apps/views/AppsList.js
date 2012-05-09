@@ -1,21 +1,21 @@
 var Class = require('shipyard/class/Class'),
-    View = require('shipyard/view/View'),
-    ListView = require('shipyard/view/ListView');
+  View = require('shipyard/view/View'),
+  ListView = require('shipyard/view/ListView');
 
 var ListItem = new Class({
 
-    Extends: View,
+  Extends: View,
 
-    template: require('../templates/app_item.ejs')
+  template: require('../templates/app_item.ejs')
 
 });
 
 module.exports = new Class({
 
-    Extends: ListView,
+  Extends: ListView,
 
-    tag: 'ol',
+  tag: 'ol',
 
-    itemView: ListItem
+  itemView: ListItem
 
 });
