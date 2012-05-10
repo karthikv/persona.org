@@ -14,11 +14,11 @@ function gotApps(_apps) {
     var currentApp = _apps[i];
 
     list.push({
-    id: currentApp._id.replace(/[^0-9\-]/g, ''),
-    origin: currentApp._origin,
-    title: currentApp.manifest.name,
-    imageURL: currentApp.manifest.icons['128'],
-    appObject: currentApp
+      id: currentApp._id.replace(/[^0-9\-]/g, ''),
+      origin: currentApp._origin,
+      title: currentApp.manifest.name,
+      imageURL: currentApp.manifest.icons['128'],
+      appObject: currentApp
     });
   }
 
@@ -44,5 +44,5 @@ exports.getInstalled = function getInstalled() {
 };
 
 exports.uninstall = function uninstall() {
-
+  
 };

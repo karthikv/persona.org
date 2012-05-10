@@ -1,6 +1,6 @@
-var Class = require('shipyard/class/Class'),
-  Observable = require('shipyard/class/Observable'),
-  dom = require('shipyard/dom');
+var Class = require('shipyard/class/Class');
+var Observable = require('shipyard/class/Observable');
+var dom = require('shipyard/dom');
 
 var api = require('../api');
 var AppsList = require('../views/AppsList');

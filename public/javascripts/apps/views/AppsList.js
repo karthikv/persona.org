@@ -1,6 +1,6 @@
-var Class = require('shipyard/class/Class'),
-  View = require('shipyard/view/View'),
-  ListView = require('shipyard/view/ListView');
+var Class = require('shipyard/class/Class');
+var View = require('shipyard/view/View');
+var ListView = require('shipyard/view/ListView');
 
 var ListItem = new Class({
 
