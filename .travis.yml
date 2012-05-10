@@ -1,4 +1,5 @@
 language: node_js
+before_script: cd public/javascripts/lib/shipyard && npm install
 script: make test
 node_js:
     - 0.6
