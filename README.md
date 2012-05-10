@@ -4,6 +4,8 @@
 
 Clone the repository
 
+> git clone --recursive git://github.com/mozilla/persona.org.git
+
 > curl http://npmjs.org/install.sh | sh
 
 Install node by using brew or through the website http://nodejs.org/#download
@@ -11,6 +13,10 @@ Install node by using brew or through the website http://nodejs.org/#download
 > cd persona.org
 
 > cp settings.js-dist settings.js
+
+> npm install
+
+> cd persona.org/public/lib/shipyard
 
 > npm install
 

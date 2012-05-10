@@ -1,15 +1,15 @@
 (function($) {
 
-$(function() {
-  // Browser ID login
-  $('#login').click(function() {
-    navigator.id.getVerifiedEmail(function(assertion) {
-      if (assertion) {
-        $('form.login input[name="bid_assertion"]').val(assertion);
-        $('form.login').submit();
-      }
+  $(function() {
+    // Browser ID login
+    $('#login').click(function() {
+      navigator.id.getVerifiedEmail(function(assertion) {
+        if (assertion) {
+          $('form.login input[name="bid_assertion"]').val(assertion);
+          $('form.login').submit();
+        }
+      });
     });
   });
-});
 
 })(jQuery);

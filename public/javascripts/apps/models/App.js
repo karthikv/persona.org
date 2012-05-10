@@ -1,5 +1,5 @@
-var Class = require('shipyard/class/Class'),
-  Observable = require('shipyard/class/Observable');
+var Class = require('shipyard/class/Class');
+var Observable = require('shipyard/class/Observable');
 
 module.exports = new Class({
 

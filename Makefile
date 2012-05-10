@@ -4,7 +4,7 @@ build_shipyard_apps = node $(shipyard_bin) build --dir $(apps_dir)
 
 test:
 	node $(shipyard_bin) test --dir $(apps_dir)
-#	@./node_modules/.bin/mocha
+	@./node_modules/.bin/mocha
 
 # This combins and *minifies* all Shipyard directories.
 shipyard: shipyard-apps
