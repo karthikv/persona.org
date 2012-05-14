@@ -6,7 +6,17 @@ var ListItem = new Class({
 
   Extends: View,
 
-  template: require('../templates/app_item.ejs')
+  template: require('../templates/app_item.ejs'),
+
+  onClick: function onClick(ev) {
+    if (ev.target.hasClass('delete')) {
+      // delete button clicked!
+      ev.preventDefault(); // stop the anchor from changing the page
+    } else {
+      // otherwise, they clicked anywhere else, lets LAUNCH!
+      this.parentView.emit('appSelect', this);
+    }
+  }
 
 });
 
