@@ -9,9 +9,10 @@ var ListItem = new Class({
   template: require('../templates/app_item.ejs'),
 
   onClick: function onClick(ev) {
-    if (ev.target.hasClass('delete')) {
-      // delete button clicked!
-      ev.preventDefault(); // stop the anchor from changing the page
+    if (ev.target.hasClass('uninstall')) {
+      ev.preventDefault();
+
+      this.parentView.emit('uninstallApp', this);
     } else {
       // otherwise, they clicked anywhere else, lets LAUNCH!
       this.parentView.emit('appSelect', this);

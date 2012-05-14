@@ -135,11 +135,17 @@ h1 {
     width: 100%;
 }
 
+a.uninstall {
+    float: right;
+    font-size: 11px;
+}
+
 /* Footer styles */
 
 #colophon {
-    display: block;
+    clear: both;
     color: #bbb;
+    display: block;
     font-size: 14px;
     line-height: 18px;
     margin: 0 auto;
