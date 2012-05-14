@@ -11,8 +11,13 @@ module.exports = new Class({
 
   initialize: function AppsController(data) {
     this.parent(data);
+    var controller = this;
 
-    this.list = new AppsList();
+    this.list = new AppsList({
+      onAppSelect: function(itemView) {
+        controller._onAppSelect(itemView);
+      }
+    });
     this.list.attach('dashboard');
     this.getApps();
   },
@@ -29,6 +34,13 @@ module.exports = new Class({
         dom.$('help').setStyle('display', 'none');
       }
     });
+  },
+
+  _onAppSelect: function _onAppSelect(appView) {
+    var appObject = appView.get('content').appObject;
+    if (appObject) {
+      appObject.launch();
+    }
   }
 
 });
