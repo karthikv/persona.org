@@ -23,6 +23,14 @@ module.exports = new Class({
     });
     this.list.attach('dashboard');
     this.getApps();
+
+    this.help = new View({
+      element: dom.$('help')
+    });
+
+    this.help.bind(this.list, {
+      'isVisibile': 'isEmpty'
+    });
   },
 
   getApps: function getApps() {
@@ -33,10 +41,6 @@ module.exports = new Class({
       results.forEach(function(r) {
         controller.list.addItem(r);
       });
-
-      if (!controller.list.isEmpty()) {
-        dom.$('help').setStyle('display', 'none');
-      }
     });
   },
 

@@ -5,14 +5,13 @@ var EventEmitter = require('shipyard/class/Events');
 var utils = require('shipyard/utils/object');
 var dom = require('shipyard/dom');
 var navigator = dom.window.get('navigator');
-var apps = navigator.apps;
+var mozApps = navigator.mozApps;
 
-function gotApps(_apps) {
+function gotApps(apps) {
   var list = [];
-  var appCount = _apps.length;
 
-  for (var i = 0; i < _apps.length; i ++) {
-    var currentApp = _apps[i];
+  for (var i = 0; i < apps.length; i ++) {
+    var currentApp = apps[i];
 
     list.push({
       id: currentApp._id.replace(/[^0-9\-]/g, ''),
@@ -24,7 +23,7 @@ function gotApps(_apps) {
   }
 
   return list;
-};
+}
 
 function getIconForSize(targetSize, app) {
   var manifest = app.manifest;
@@ -40,7 +39,7 @@ function getIconForSize(targetSize, app) {
         bestFit = iconSize;
       }
 
-      if (biggestFallback == 0 || iconSize > biggestFallback) {
+      if (biggestFallback === 0 || iconSize > biggestFallback) {
         biggestFallback = iconSize;
       }
     });
@@ -51,10 +50,22 @@ function getIconForSize(targetSize, app) {
     }
   }
   return DEFAULT_ICON;
-};
+}
+
+exports = module.exports = new EventEmitter();
+
+if (mozApps && mozApps.mgmt) {
+  mozApps.mgmt.oninstall = function(ev) {
+    exports.emit('install', ev.application);
+  };
+
+  mozApps.mgmt.onuninstall = function(ev) {
+    exports.emit('uninstall', ev.application);
+  };
+}
 
 exports.getInstalled = function getInstalled() {
-  var pending = navigator.mozApps.mgmt.getAll();
+  var pending = mozApps.mgmt.getAll();
   var emitter = new EventEmitter();
 
   pending.onsuccess = function () {
