@@ -70,6 +70,16 @@ exports.getInstalled = function getInstalled() {
   return emitter;
 };
 
-exports.uninstall = function uninstall() {
-  
+exports.uninstall = function uninstall(app) {
+  var pending = app.uninstall();
+  var emitter = new EventEmitter();
+
+  pending.onsuccess = function() {
+    emitter.emit('success', 200);
+  };
+
+  pending.onerror = function () {
+    emitter.emit('error');
+  };
+  return emitter;
 };

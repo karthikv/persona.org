@@ -16,6 +16,9 @@ module.exports = new Class({
     this.list = new AppsList({
       onAppSelect: function(itemView) {
         controller._onAppSelect(itemView);
+      },
+      onUninstallApp: function(itemView) {
+        controller._onUninstallApp(itemView);
       }
     });
     this.list.attach('dashboard');
@@ -25,6 +28,7 @@ module.exports = new Class({
   getApps: function getApps() {
     var controller = this;
     var pending = api.getInstalled();
+
     pending.addListener('success', function(results) {
       results.forEach(function(r) {
         controller.list.addItem(r);
@@ -38,9 +42,25 @@ module.exports = new Class({
 
   _onAppSelect: function _onAppSelect(appView) {
     var appObject = appView.get('content').appObject;
+
     if (appObject) {
       appObject.launch();
     }
+  },
+
+  _onUninstallApp: function _onUninstallApp(appView) {
+    var controller = this;
+    var content = appView.get('content');
+    var appObject = content.appObject;
+    var pending = api.uninstall(appObject);
+
+    pending.addListener('success', function() {
+      controller.list.removeItem(content);
+
+      if (controller.list.isEmpty()) {
+        dom.$('help').setStyle('display', 'block');
+      }
+    });
   }
 
 });
