@@ -1,13 +1,15 @@
 var Class = require('shipyard/class/Class');
 var Observable = require('shipyard/class/Observable');
 var dom = require('shipyard/dom');
+var View = require('shipyard/view/View');
 
-var api = require('../api');
 var AppsList = require('../views/AppsList');
 
 module.exports = new Class({
 
   Extends: Observable,
+
+  api: null,
 
   initialize: function AppsController(data) {
     this.parent(data);
@@ -21,22 +23,31 @@ module.exports = new Class({
         controller._onUninstallApp(itemView);
       }
     });
+    this.list.bind(this, {
+      content: 'apps'
+    });
     this.list.attach('dashboard');
     this.getApps();
+
+    var helpId = 'help';
+    this.help = new View({
+      element: dom.$(helpId),
+      id: helpId
+    });
+
+    // help's visibility depends on if the list is empty.
+    this.help.bind(this.list, {
+      'isVisible': 'isEmpty'
+    });
+
   },
 
   getApps: function getApps() {
     var controller = this;
-    var pending = api.getInstalled();
+    var pending = this.api.getInstalled();
 
     pending.addListener('success', function(results) {
-      results.forEach(function(r) {
-        controller.list.addItem(r);
-      });
-
-      if (!controller.list.isEmpty()) {
-        dom.$('help').setStyle('display', 'none');
-      }
+      controller.set('apps', results);
     });
   },
 
@@ -52,15 +63,7 @@ module.exports = new Class({
     var controller = this;
     var content = appView.get('content');
     var appObject = content.appObject;
-    var pending = api.uninstall(appObject);
-
-    pending.addListener('success', function() {
-      controller.list.removeItem(content);
-
-      if (controller.list.isEmpty()) {
-        dom.$('help').setStyle('display', 'block');
-      }
-    });
+    this.api.uninstall(appObject);
   }
 
 });
