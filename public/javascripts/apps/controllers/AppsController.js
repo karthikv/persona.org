@@ -23,6 +23,9 @@ module.exports = new Class({
         controller._onUninstallApp(itemView);
       }
     });
+    this.list.bind(this, {
+      content: 'apps'
+    });
     this.list.attach('dashboard');
     this.getApps();
 
@@ -44,9 +47,7 @@ module.exports = new Class({
     var pending = this.api.getInstalled();
 
     pending.addListener('success', function(results) {
-      results.forEach(function(r) {
-        controller.list.addItem(r);
-      });
+      controller.set('apps', results);
     });
   },
 
@@ -62,11 +63,7 @@ module.exports = new Class({
     var controller = this;
     var content = appView.get('content');
     var appObject = content.appObject;
-    var pending = api.uninstall(appObject);
-
-    pending.addListener('success', function() {
-      controller.list.removeItem(content);
-    });
+    this.api.uninstall(appObject);
   }
 
 });
