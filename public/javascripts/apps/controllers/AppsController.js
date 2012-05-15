@@ -2,12 +2,13 @@ var Class = require('shipyard/class/Class');
 var Observable = require('shipyard/class/Observable');
 var dom = require('shipyard/dom');
 
-var api = require('../api');
 var AppsList = require('../views/AppsList');
 
 module.exports = new Class({
 
   Extends: Observable,
+
+  api: null,
 
   initialize: function AppsController(data) {
     this.parent(data);
@@ -35,7 +36,7 @@ module.exports = new Class({
 
   getApps: function getApps() {
     var controller = this;
-    var pending = api.getInstalled();
+    var pending = this.api.getInstalled();
 
     pending.addListener('success', function(results) {
       results.forEach(function(r) {
