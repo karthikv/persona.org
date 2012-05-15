@@ -1,6 +1,7 @@
 var Class = require('shipyard/class/Class');
 var Observable = require('shipyard/class/Observable');
 var dom = require('shipyard/dom');
+var View = require('shipyard/view/View');
 
 var AppsList = require('../views/AppsList');
 
@@ -25,13 +26,17 @@ module.exports = new Class({
     this.list.attach('dashboard');
     this.getApps();
 
+    var helpId = 'help';
     this.help = new View({
-      element: dom.$('help')
+      element: dom.$(helpId),
+      id: helpId
     });
 
+    // help's visibility depends on if the list is empty.
     this.help.bind(this.list, {
-      'isVisibile': 'isEmpty'
+      'isVisible': 'isEmpty'
     });
+
   },
 
   getApps: function getApps() {
@@ -61,10 +66,6 @@ module.exports = new Class({
 
     pending.addListener('success', function() {
       controller.list.removeItem(content);
-
-      if (controller.list.isEmpty()) {
-        dom.$('help').setStyle('display', 'block');
-      }
     });
   }
 
