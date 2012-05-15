@@ -48,6 +48,10 @@ html(lang='#{lang}', dir='#{lang_dir}')
 
             nav(class='span2')
               ul
+                if session.email
+                  li
+                    a(href='/dashboard')
+                      = gettext('Dashboard')
                 li
                   if session.email
                     a(href='/logout')= gettext('Log out')
