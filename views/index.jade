@@ -3,4 +3,9 @@ extends layout
 block content
   h1.headline-main= title
 
-  #message
+  #dashboard
+    if session.email
+      = gettext('This is the persona.org homepage! Go to your ')
+      a(href='/dashboard') dashboard
+    else
+      = gettext('Welcome to persona.org! Sign in below.')

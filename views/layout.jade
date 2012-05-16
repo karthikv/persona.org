@@ -50,6 +50,9 @@ html(lang='#{lang}', dir='#{lang_dir}')
               ul
                 if session.email
                   li
+                    a(href='/')
+                      = gettext('Home')
+                  li
                     a(href='/dashboard')
                       = gettext('Dashboard')
                 li

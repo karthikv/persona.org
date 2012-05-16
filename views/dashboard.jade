@@ -4,14 +4,8 @@ block dashboard_header
   link(rel='stylesheet', href='/stylesheets/lib/icongrid.css')
 
 block content
-  h1= gettext('Apps')
+  h1= gettext(title)
   
   #dashboard
-    #help
-      !{format(gettext('You have no apps installed. Apps are available in the <a %s>Marketplace</a>'), [' href="https://marketplace.mozilla.org" target="_blank"'])}
-
-block scripts
-    if DEBUG
-        script(src='/javascripts/lib/shipyard/scripts/require.js', data-main='/javascripts/apps')
-    else
-        script(src='/javascripts/apps-min.js')
+    a(href='/apps')
+      = gettext('My Apps')

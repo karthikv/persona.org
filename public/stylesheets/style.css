@@ -136,8 +136,70 @@ h1 {
 }
 
 a.uninstall {
+    background-color: #bbb;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+    display: none;
     float: right;
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: bold;
+    height: 11px;
+    line-height: 8px;
+    padding: 2px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: 11px;
+}
+
+a.uninstall:hover {
+    background-color: #ce3940;
+}
+
+#dashboard {
+    background-color: #d8dfe3;
+    border: 1px solid #d8dee2;
+    border-radius: 5px;
+    box-shadow: #c3c9cd 1px 1px 3px 1px inset;
+    margin: 0 auto;
+    padding: 20px;
+    width: 900px;
+}
+
+#dashboard ol li {
+    -moz-border-radius: 5%;
+    -webkit-border-radius: 5%;
+    border-radius: 5%;
+    box-shadow: #ccc 1px 1px 3px 1px inset;
+    cursor: pointer;
+    display: inline-block;
+    height: 80px;
+    margin: 6px 6px 50px 6px;
+    padding: 6px;
+    position: relative;
+    text-align: center;
+    width: 80px;
+}
+
+#dashboard ol li:hover a.uninstall {
+    display: block;
+}
+
+#dashboard ol li h3 {
+    font-size: 12px;
+    line-height: 15px;
+    overflow: hidden;
+    padding-top: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#dashboard ol li img {
+    border-radius: 8px;
+    display: block;
+    height: 80px;
+    width: 80px;
 }
 
 /* Footer styles */
@@ -149,7 +211,7 @@ a.uninstall {
     font-size: 14px;
     line-height: 18px;
     margin: 0 auto;
-    padding: 48px 0px;
+    padding: 28px 0px;
     position: relative;
     width: 896px;
 }
@@ -177,59 +239,48 @@ a.uninstall {
     color: #2983c8;
 }
 
-#dashboard {
-    background-color: #eee;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin: 0 auto;
-    padding: 10px 5px 10px 10px;
-    width: 940px;
-}
+@media only screen and (min-width: 651px) and (max-width: 991px) {
+    h1 {
+        font-size: 62px;
+    }
 
-#dashboard ol li {
-    -moz-border-radius: 10%;
-    -webkit-border-radius: 10%;
-    border-radius: 10%;
-    box-shadow: #ccc 1px 1px 3px 1px inset;
-    cursor: pointer;
-    display: inline-block;
-    height: 80px;
-    margin: 6px 6px 30px 6px;
-    padding: 6px;
-    position: relative;
-    width: 80px;
-}
-
-#dashboard ol li h3 {
-    font-size: 12px;
-    line-height: 15px;
-    overflow: hidden;
-    padding-top: 8px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-#dashboard ol li img {
-    border-radius: 8px;
-    display: block;
-    height: 80px;
-    width: 80px;
-}
-
-@media only screen and (min-width: 701px) and (max-width: 991px) {
-    #dashboard {
-        width: 730px;
+    #dashboard, #colophon {
+        width: 630px;
     }
 }
 
-@media only screen and (min-width: 410px) and (max-width: 700px) {
-    #dashboard {
+@media only screen and (min-width: 410px) and (max-width: 650px) {
+    h1 {
+        font-size: 52px;
+    }
+
+    #dashboard, #colophon {
         width: 320px;
+    }
+
+    #colophon nav:last-child {
+        margin-top: -20px;
+    }
+
+    #colophon nav {
+        margin: 20px 25px;
     }
 }
 
 @media only screen and (max-width: 409px) {
-    #dashboard {
+    h1 {
+        font-size: 46px;
+    }
+
+    #dashboard, #colophon {
         width: 220px;
+    }
+
+    #colophon nav:last-child {
+        margin-top: -20px;
+    }
+
+    #colophon nav {
+        margin: 20px 25px;
     }
 }

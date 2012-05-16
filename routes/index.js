@@ -19,4 +19,9 @@ module.exports = function(app) {
   app.get('/dashboard', isAuthenticated, function(req, res) {
     res.render('dashboard', { title: 'Dashboard' });
   });
+
+  // Apps
+  app.get('/apps', isAuthenticated, function(req, res) {
+    res.render('apps', { title: 'My Apps' })
+  });
 };
