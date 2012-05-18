@@ -149,6 +149,7 @@ a.uninstall {
     padding: 2px;
     position: absolute;
     right: -5px;
+    text-align: center;
     top: -5px;
     width: 11px;
 }
@@ -165,6 +166,10 @@ a.uninstall:hover {
     margin: 0 auto;
     padding: 20px;
     width: 900px;
+}
+
+#dashboard.home {
+    text-align: center;
 }
 
 #dashboard ol li {
