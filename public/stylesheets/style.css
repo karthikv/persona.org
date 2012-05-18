@@ -73,18 +73,10 @@ a {
 }
 
 #wrapper {
-    background-image: linear-gradient(bottom, #c1c7cb 10%, #dce1e3 59%);
-    background-image: -o-linear-gradient(bottom, #c1c7cb 10%, #dce1e3 59%);
-    background-image: -moz-linear-gradient(bottom, #c1c7cb 10%, #dce1e3 59%);
-    background-image: -webkit-linear-gradient(bottom, #c1c7cb 10%, #dce1e3 59%);
-    background-image: -ms-linear-gradient(bottom, #c1c7cb 10%, #dce1e3 59%);
-    background-image: -webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.10, #c1c7cb),
-        color-stop(0.59, #dce1e3)
-    );
+    background-color: #6a7b86;
+    background-image: url('/images/marketplace-header.png'), url('/images/wallpaper.png');
+    background-position: center top, center top;
+    background-repeat: repeat-x, repeat;
     float: left;
     margin-bottom: 20px;
     padding-bottom: 100px;
@@ -125,7 +117,7 @@ a {
 
 h1 {
     clear: both;
-    color: #424f5a;
+    color: #fff;
     font-size: 72px;
     font-weight: 300;
     letter-spacing: -2px;
@@ -168,7 +160,31 @@ a.uninstall:hover {
     width: 900px;
 }
 
+.splash {
+    color: #fff;
+    margin: 0 auto;
+    padding-top: 60px;
+    width: 580px;
+}
+
+.splash img {
+    float: left;
+}
+
+.splash p {
+    float: left;
+    font-family: 'Open Sans',"Lucida Sans","Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+    font-size: 49px;
+    font-weight: 300;
+    padding-top: 60px;
+    text-shadow: #2b353c 1px 1px 2px;
+    width: 300px;
+}
+
 #dashboard.home {
+    background-color: transparent;
+    border: 0px;
+    box-shadow: none;
     text-align: center;
 }
 
@@ -259,6 +275,16 @@ a.uninstall:hover {
         font-size: 52px;
     }
 
+    .splash img {
+        width: 170px;
+    }
+
+    .splash p {
+        font-size: 46px;
+        padding-top: 50px;
+        width: 210px;
+    }
+
     #dashboard, #colophon {
         width: 320px;
     }
@@ -275,6 +301,16 @@ a.uninstall:hover {
 @media only screen and (max-width: 409px) {
     h1 {
         font-size: 46px;
+    }
+
+    .splash img {
+        width: 100px;
+    }
+
+    .splash p {
+        font-size: 30px;
+        padding-top: 25px;
+        width: 150px;
     }
 
     #dashboard, #colophon {

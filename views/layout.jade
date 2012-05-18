@@ -10,17 +10,7 @@ html(lang='#{lang}', dir='#{lang_dir}')
         .wrapper-container
           header(id='masthead')
             a(href='http://www.mozilla.org/', id='tabzilla')= gettext('Mozilla')
-            nav(id='nav-main', role='navigation')
-              ol
-                li
-                  a(href='http://www.mozilla.org/mission/')= gettext('Mission')
-                li
-                  a(href='http://www.mozilla.org/about/')= gettext('About')
-                li
-                  a(href='http://www.mozilla.org/projects/')= gettext('Projects')
-                li
-                  a(href='http://www.mozilla.org/contribute/')= gettext('Get Involved')
-
+            
           block content
 
       block footer
