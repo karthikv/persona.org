@@ -178,9 +178,10 @@ a.uninstall:hover {
     letter-spacing: -2px;
     line-height: 100%;
     font-weight: 300;
-    padding-top: 60px;
+    margin-left: 40px;
+    padding-top: 80px;
     text-shadow: 0px 1px 0px rgba(0,0,0,0.25);
-    width: 250px;
+    width: 300px;
 }
 
 #dashboard.home {
@@ -284,7 +285,7 @@ a.uninstall:hover {
     .splash p {
         font-size: 46px;
         padding-top: 50px;
-        width: 210px;
+        width: 170px;
     }
 
     #dashboard, #colophon {
@@ -312,7 +313,7 @@ a.uninstall:hover {
     .splash p {
         font-size: 30px;
         padding-top: 25px;
-        width: 150px;
+        width: 100px;
     }
 
     #dashboard, #colophon {
