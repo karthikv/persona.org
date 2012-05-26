@@ -9,7 +9,7 @@ var dom = require('shipyard/dom');
 var navigator = dom.window.get('navigator');
 var mozApps = navigator.mozApps;
 
-var logging = require('shipyard/utils/log');
+var logging = require('shipyard/logging');
 var log = logging.getLogger('apps.api');
 
 function getIconForSize(targetSize, app) {
