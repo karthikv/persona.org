@@ -2,6 +2,9 @@ var Class = require('shipyard/class/Class');
 var Observable = require('shipyard/class/Observable');
 var dom = require('shipyard/dom');
 var View = require('shipyard/view/View');
+var logging = require('shipyard/logging');
+
+var log = logging.getLogger('apps.controllers.AppsController');
 
 var AppsList = require('../views/AppsList');
 
@@ -47,6 +50,7 @@ module.exports = new Class({
     var pending = this.api.getInstalled();
 
     pending.addListener('success', function(results) {
+      log.debug('Apps found [{0}]', results.length);
       controller.set('apps', results);
     });
   },
