@@ -22,7 +22,7 @@ html(lang='#{lang}', dir='#{lang_dir}')
                   if session.email
                     a(href='/logout')= gettext('Log out')
                   else
-                    a(href='#', class='login') Sign in
+                    a(href='#', class='sign-in') Sign in
                     form(method='post', action='/login', class='login')
                       input(type='hidden', name='bid_assertion', value='1')
             a(href='http://www.mozilla.org/', id='tabzilla')= gettext('Mozilla')
@@ -65,7 +65,7 @@ html(lang='#{lang}', dir='#{lang_dir}')
                   if session.email
                     a(href='/logout')= gettext('Log out')
                   else
-                    a(href='#', class='login')
+                    a(href='#', class='sign-in')
                       img(src='../images/persona-button.png')
                     form(method='post', action='/login', class='login')
                       input(type='hidden', name='bid_assertion', value='1')
