@@ -9,6 +9,15 @@ html(lang='#{lang}', dir='#{lang_dir}')
       #wrapper
         .wrapper-container
           header(id='masthead')
+            h1.logo
+              a(href="/")
+                img(src="images/logo.png", alt="Persona")
+            nav
+              ul
+                li 
+                  a(href="/") How it works
+                li.sign-in
+                  a(href="#") Sign in
             a(href='http://www.mozilla.org/', id='tabzilla')= gettext('Mozilla')
             
           block content

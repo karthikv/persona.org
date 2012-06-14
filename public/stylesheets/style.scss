@@ -1,0 +1,443 @@
+@import 'globals';
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* Main Styles */
+body {
+    background-color: #fff;
+    background-image: url('../../images/wallpaper.png');
+    background-repeat: repeat;
+    color: #424f5a;
+    float: left;
+    font-family: 'Open Sans',"Lucida Sans","Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+    width: 100%;
+}
+
+a {
+    color: #3b9bda;
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+#outer-wrapper {
+    border-top: 2px solid #fff;
+    width: 100%;
+}
+
+#wrapper {
+    background-color: #6a7b86;
+    background-image: url('/images/marketplace-header.png'), url('/images/wallpaper.png');
+    background-position: center top, center top;
+    background-repeat: repeat-x, repeat;
+    float: left;
+    margin-bottom: 20px;
+    padding-bottom: 100px;
+    width: 100%;
+}
+
+.wrapper-container {
+    clear: both;
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+// Header
+#masthead {
+    @include clearfix;
+    max-width: $full;
+    display: block;
+    margin: 0 auto;
+    padding: 25px 0 0;
+    position: relative;
+
+    .logo{
+        float: left;
+    }
+
+    nav{
+        float: right;
+        margin-right: 150 + 15px; // account for tabzilla
+        font-size: 16px;
+    }
+
+    li{
+        display: inline;
+
+        a{
+           display: inline-block;
+           padding: 0 15px;
+           color: #fff;
+           text-shadow: $white-text-shadow;
+        }
+    }
+
+    .sign-in a{
+        @include border-radius(5px);
+        @include box-shadow(0 0 1px rgba(#fff, 0.6));
+        @include transition;
+        border: 1px solid #323c43;
+        padding: 8px 20px;
+
+        &:hover{
+            background: rgba(#000, 0.15);
+        }
+    }
+}
+
+#tabzilla {
+    outline: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#nav-main {
+    float: right;
+    font-size: 13px;
+    margin-right: 16px;
+    text-transform: uppercase;
+
+    ol li {
+        float: left;
+
+        a {
+            color: #484848;
+            display: inline-block;
+            outline: none;
+            padding: 12px;
+        }
+    }
+}
+
+h1 {
+    clear: both;
+    color: #fff;
+    font-size: 72px;
+    font-weight: 300;
+    letter-spacing: -2px;
+}
+
+a.uninstall {
+    background-color: #bbb;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    color: #fff;
+    display: none;
+    float: right;
+    font-size: 12px;
+    font-weight: bold;
+    height: 11px;
+    line-height: 8px;
+    padding: 2px;
+    position: absolute;
+    right: -5px;
+    text-align: center;
+    top: -5px;
+    width: 11px;
+
+    &:hover {
+        background-color: #ce3940;
+    }
+}
+
+#dashboard{
+    background-color: #d8dfe3;
+    border: 1px solid #d8dee2;
+    border-radius: 5px;
+    box-shadow: #c3c9cd 1px 1px 3px 1px inset;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: $full;
+
+    &.home {
+        background-color: transparent;
+        border: 0px;
+        box-shadow: none;
+        text-align: center;
+        padding: 100px 0 0;
+    }
+
+    ol li {
+        @include border-radius(5%);
+        box-shadow: #ccc 1px 1px 3px 1px inset;
+        cursor: pointer;
+        display: inline-block;
+        height: 80px;
+        margin: 6px 6px 50px 6px;
+        padding: 6px;
+        position: relative;
+        text-align: center;
+        width: 80px;
+    }
+
+    ol li:hover a.uninstall {
+        display: block;
+    }
+
+    ol li h3 {
+        font-size: 12px;
+        line-height: 15px;
+        overflow: hidden;
+        padding-top: 8px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    ol li img {
+        border-radius: 8px;
+        display: block;
+        height: 80px;
+        width: 80px;
+    }
+}
+
+//  How It Works
+// ******************************************************************
+h2.title{
+    font-size: 48px;
+    font-weight: normal;
+    color: $dark_headline;
+    text-shadow: 0 1px rgba(#fff, 0.25);
+    letter-spacing: -2px;
+    padding-bottom: $gutter;
+    margin: 0;
+}
+
+.blurb, a.developers{
+    @include box-shadow(0 1px 0 rgba(#fff, 0.13));
+    background: rgba(13, 28, 41, 0.1);
+    font-size: 14px;
+    color: #fff;
+    text-shadow: $white-text-shadow;
+}
+
+.blurb{
+    @include box-sizing;
+    @include clearfix;
+    margin-top: $gutter;
+    padding: $gutter;
+    text-align: left;
+    line-height: 1.5;
+
+    &.half{
+        width: 48%;
+        float: left;
+
+        &.first{
+            margin-right: 4%;
+        }
+    }
+
+    .info, .graphic{
+        @include box-sizing;
+        width: 50%;
+        float: left;
+
+        &.first{
+            padding-right: $gutter;
+        }
+    }
+
+    .graphic{
+        text-align: center;
+    }
+
+    h1{
+        font-size: 32px;
+        font-weight: normal;
+        letter-spacing: -1px;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    p{
+        margin-bottom: 1em;
+    }
+}
+
+.privacy{
+    @include box-shadow(0 1px 0 rgba(#fff, 0.1));
+    @include clearfix;
+    border-bottom: 1px solid rgba(#000,  0.2);
+    padding-bottom: $gutter * 2;
+    margin: 100px 0 $gutter * 2;
+}
+
+a.developers{
+    @include transition;
+    display: block;
+    padding: 13px 15px 15px;
+
+    &:hover{
+        background: rgba(13, 28, 41, 0.2);
+    }
+
+    img{
+        margin: 0 5px -7px 0;
+    }
+
+    span{
+        color: #53b7fb;
+        font-weight: bold;
+        margin-right: 10px;
+        display: inline-block;
+    }
+}
+
+//  Footer styles
+// ******************************************************************
+
+#colophon {
+    clear: both;
+    color: #bbb;
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0 auto;
+    padding: 28px 0px;
+    position: relative;
+    width: 896px;
+
+    .row {
+        margin-left: -24px;
+    }
+
+    .span2 {
+        float: left;
+        width: 160px;
+    }
+
+    .span3 {
+        float: left;
+        margin-left: 24px;
+        width: 252px;
+    }
+
+    nav ul {
+        margin: 0px 0px 24px;
+    }
+
+    a, a:visited {
+        color: #2983c8;
+    }
+}
+
+//  Media Queries
+// ******************************************************************
+
+@media only screen and (min-width: 651px) and (max-width: 991px) {
+    h1 {
+        font-size: 62px;
+    }
+
+    #dashboard, #colophon {
+        width: 630px;
+    }
+}
+
+@media only screen and (min-width: 410px) and (max-width: 650px) {
+    h1 {
+        font-size: 52px;
+    }
+
+    .splash img {
+        width: 170px;
+    }
+
+    .splash p {
+        font-size: 46px;
+        padding-top: 50px;
+        width: 170px;
+    }
+
+    #dashboard, #colophon {
+        width: 320px;
+    }
+
+    #colophon nav:last-child {
+        margin-top: -20px;
+    }
+
+    #colophon nav {
+        margin: 20px 25px;
+    }
+}
+
+@media only screen and (max-width: 409px) {
+    h1 {
+        font-size: 46px;
+    }
+
+    .splash img {
+        width: 100px;
+    }
+
+    .splash p {
+        font-size: 30px;
+        padding-top: 25px;
+        width: 100px;
+    }
+
+    #dashboard, #colophon {
+        width: 220px;
+    }
+
+    #colophon nav:last-child {
+        margin-top: -20px;
+    }
+
+    #colophon nav {
+        margin: 20px 25px;
+    }
+}
