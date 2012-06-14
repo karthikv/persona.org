@@ -1,6 +1,7 @@
 /*	Colors
  ********************************/
 $dark_headline: #10151a;
+$blue: #53b7fb;
 
 /*	Sizes
  ********************************/
@@ -62,12 +63,8 @@ $white-text-shadow: 0 1px rgba(#000, 0.5);
 @mixin transition($t: all 300ms ease){
 	-webkit-transition: $t;
 	-moz-transition: $t;
+  -ms-transition: $t;
 	transition: $t;
-}
-@mixin multi-transition($transitions){
-    -webkit-transition: $transitions;
-	-moz-transition: $transitions;
-	transition: $transitions;
 }
 @mixin transform($transformation){
     -webkit-transform: $transformation;   

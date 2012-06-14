@@ -16,8 +16,15 @@ html(lang='#{lang}', dir='#{lang_dir}')
               ul
                 li 
                   a(href="/") How it works
-                li.sign-in
-                  a(href="#") Sign in
+                li 
+                  a(href="https://developer.mozilla.org/en/BrowserID/Quick_Setup") Developers
+                li.btn
+                  if session.email
+                    a(href='/logout')= gettext('Log out')
+                  else
+                    a(href='#', class='login') Sign in
+                    form(method='post', action='/login', class='login')
+                      input(type='hidden', name='bid_assertion', value='1')
             a(href='http://www.mozilla.org/', id='tabzilla')= gettext('Mozilla')
             
           block content
@@ -58,7 +65,7 @@ html(lang='#{lang}', dir='#{lang_dir}')
                   if session.email
                     a(href='/logout')= gettext('Log out')
                   else
-                    a(href='#', id='login')
+                    a(href='#', class='login')
                       img(src='../images/persona-button.png')
                     form(method='post', action='/login', class='login')
                       input(type='hidden', name='bid_assertion', value='1')

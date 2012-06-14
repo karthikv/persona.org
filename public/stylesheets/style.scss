@@ -101,6 +101,12 @@ img{
     padding: 25px 0 0;
     position: relative;
 
+    + h1{
+       display: block;
+       max-width: $full;
+       margin: $gutter*2 auto; 
+    }
+
     .logo{
         float: left;
     }
@@ -119,10 +125,14 @@ img{
            padding: 0 15px;
            color: #fff;
            text-shadow: $white-text-shadow;
+
+            &:hover{
+                color: $blue;
+            }
         }
     }
 
-    .sign-in a{
+    .btn a{
         @include border-radius(5px);
         @include box-shadow(0 0 1px rgba(#fff, 0.6));
         @include transition;
@@ -198,7 +208,7 @@ a.uninstall {
     box-shadow: #c3c9cd 1px 1px 3px 1px inset;
     margin: 0 auto;
     padding: 20px;
-    max-width: $full;
+    max-width: $full - 40px;
 
     &.home {
         background-color: transparent;
@@ -247,8 +257,8 @@ a.uninstall {
 h2.title{
     font-size: 48px;
     font-weight: normal;
-    color: $dark_headline;
-    text-shadow: 0 1px rgba(#fff, 0.25);
+    color: #fff;
+    text-shadow: $white-text-shadow;
     letter-spacing: -2px;
     padding-bottom: $gutter;
     margin: 0;
@@ -270,6 +280,15 @@ h2.title{
     text-align: left;
     line-height: 1.5;
 
+    a{
+        color: #fff;
+        border-bottom: 1px dotted #fff;
+
+        &:hover{
+            color: $blue;
+        }
+    }
+
     &.half{
         width: 48%;
         float: left;
@@ -283,10 +302,10 @@ h2.title{
         @include box-sizing;
         width: 50%;
         float: left;
+    }
 
-        &.first{
-            padding-right: $gutter;
-        }
+    .first{
+        padding-right: $gutter;
     }
 
     .graphic{
@@ -297,12 +316,16 @@ h2.title{
         font-size: 32px;
         font-weight: normal;
         letter-spacing: -1px;
-        line-height: 1;
+        line-height: 1.1;
         margin-bottom: 20px;
     }
 
     p{
         margin-bottom: 1em;
+
+        &:last-of-type{
+            margin-bottom: 0;
+        }
     }
 }
 
@@ -317,7 +340,8 @@ h2.title{
 a.developers{
     @include transition;
     display: block;
-    padding: 13px 15px 15px;
+    padding: 13px 15px;
+    line-height: 1.4;
 
     &:hover{
         background: rgba(13, 28, 41, 0.2);
@@ -328,10 +352,18 @@ a.developers{
     }
 
     span{
-        color: #53b7fb;
+        color: $blue;
         font-weight: bold;
         margin-right: 10px;
         display: inline-block;
+    }
+}
+
+article.flexible{
+    padding-bottom: 0;
+
+    .info{
+        margin-bottom:$gutter;
     }
 }
 
@@ -348,6 +380,10 @@ a.developers{
     padding: 28px 0px;
     position: relative;
     width: 896px;
+
+    img{
+        max-width: none;
+    }
 
     .row {
         margin-left: -24px;
@@ -375,6 +411,35 @@ a.developers{
 
 //  Media Queries
 // ******************************************************************
+@media only screen and (max-width: 991px){
+    #masthead{
+        width: 95%;
+
+        + h1{
+            width: 95%;
+            text-align: center;
+        }
+
+        .logo{
+            float: none;
+            text-align: center;
+        }
+        nav{
+            float: none;
+            clear: both;
+            margin: $gutter 0 0;
+            text-align: center;
+
+            li:first-child a{
+                padding-left: 0;
+            }
+        }
+    }
+
+    #dashboard.home{
+        width: 95%;
+    }
+}
 
 @media only screen and (min-width: 651px) and (max-width: 991px) {
     h1 {
@@ -386,19 +451,46 @@ a.developers{
     }
 }
 
+@media only screen and (max-width: 650px){
+    .blurb.half{
+        width: 100%;
+        float: none;
+        min-height: 0 !important;
+
+        &.first{
+            margin-right: 0;
+        }
+    }
+
+    .blurb{
+        @include flexbox;
+
+        .info{
+            @include box-ordinal-group(2);
+        }
+
+        &.flexible .graphic{
+            margin: 0 0 $gutter;
+        }
+
+        .first{
+            padding-right: 0;
+        }
+
+        .info, .graphic{
+            float: none;
+            width: 100%;
+        }
+    }
+
+    h2.title{
+        font-size: 42px;
+    }
+}
+
 @media only screen and (min-width: 410px) and (max-width: 650px) {
     h1 {
         font-size: 52px;
-    }
-
-    .splash img {
-        width: 170px;
-    }
-
-    .splash p {
-        font-size: 46px;
-        padding-top: 50px;
-        width: 170px;
     }
 
     #dashboard, #colophon {
@@ -417,16 +509,6 @@ a.developers{
 @media only screen and (max-width: 409px) {
     h1 {
         font-size: 46px;
-    }
-
-    .splash img {
-        width: 100px;
-    }
-
-    .splash p {
-        font-size: 30px;
-        padding-top: 25px;
-        width: 100px;
     }
 
     #dashboard, #colophon {

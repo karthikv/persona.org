@@ -13,12 +13,12 @@ block content
         article.blurb
           .info.first
             h1 Persona replaces multiple passwords
-            p Sites such as <a href="#">The Times Crossword</a>, <a href="#">OpenPhoto</a> and <a href="#">Voost</a> use Persona instead of usernames to sign you in.
+            p Sites such as <a href="http://crossword.thetimes.co.uk/">The Times Crossword</a>, <a href="http://openphoto.net/">OpenPhoto</a> and <a href="https://www.voo.st/">Voost</a> use Persona instead of usernames to sign you in.
             p This means you only need one password to sign in to many sites.
           .graphic
             img(src="images/one-password-graphic.png", alt="One password to rule them all.")
 
-        article.blurb
+        article.blurb.flexible
           .graphic.first
             img(src="images/flexible-graphic.png", alt="Use multiple email addresses")
           .info
@@ -36,7 +36,10 @@ block content
           h1 Persona preserves your privacy
           p Persona does not track your activity around the Web. It creates a wall between signing you in and what you do once you’re there. The history of what sites you visit is stored only on your own computer.
 
-      a(href="#").developers
+      a(href="https://developer.mozilla.org/en/BrowserID/Quick_Setup").developers
         img(src="images/developers-link.png", alt="Persona for developers")
         span Implement Persona on your site 
         | Developer guides and API documentation
+
+block scripts
+  script(src='/javascripts/equal-heights.js')
