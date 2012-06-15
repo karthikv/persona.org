@@ -16,7 +16,7 @@ Install node by using brew or through the website http://nodejs.org/#download
 
 > npm install
 
-> cd persona.org/public/lib/shipyard
+> cd persona.org/public/javascripts/lib/shipyard
 
 > npm install
 
