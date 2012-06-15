@@ -9,6 +9,22 @@ html(lang='#{lang}', dir='#{lang_dir}')
       #wrapper
         .wrapper-container
           header(id='masthead')
+            h1.logo
+              a(href="/")
+                img(src="images/logo.png", alt="Persona")
+            nav
+              ul
+                li 
+                  a(href="/") How it works
+                li 
+                  a(href="https://developer.mozilla.org/en/BrowserID/Quick_Setup") Developers
+                li.btn
+                  if session.email
+                    a(href='/logout')= gettext('Log out')
+                  else
+                    a(href='#', class='sign-in') Sign in
+                    form(method='post', action='/login', class='login')
+                      input(type='hidden', name='bid_assertion', value='1')
             a(href='http://www.mozilla.org/', id='tabzilla')= gettext('Mozilla')
             
           block content
@@ -49,7 +65,7 @@ html(lang='#{lang}', dir='#{lang_dir}')
                   if session.email
                     a(href='/logout')= gettext('Log out')
                   else
-                    a(href='#', id='login')
+                    a(href='#', class='sign-in')
                       img(src='../images/persona-button.png')
                     form(method='post', action='/login', class='login')
                       input(type='hidden', name='bid_assertion', value='1')
