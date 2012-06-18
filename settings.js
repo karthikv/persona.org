@@ -2,15 +2,9 @@
 module.exports = function(app, configurations, express) {
   var clientSessions = require('client-sessions');
   var i18n = require('i18n-abide');
+  var nconf = require('nconf');
 
-  var options = {
-    domain: 'http://localhost',
-    // This is the port that binds to the node server - Apache/Nginx will likely proxy from here
-    port: 3000,
-    // This is the port that browserid requires for the actual site - 80 for http, 443 for https
-    authPort: 3000,
-    authUrl: 'https://browserid.org'
-  };
+  nconf.argv().env().file({ file: 'local.json' });
 
   // Configuration
   app.configure(function(){
@@ -27,8 +21,8 @@ module.exports = function(app, configurations, express) {
     app.use(express.methodOverride());
     app.use(express.static(__dirname + '/public'));
     app.use(clientSessions({
-      cookieName: 'session_persona',
-      secret: 'secret', // MUST be set
+      cookieName: nconf.get('cookieName'),
+      secret: nconf.get('secret'), // MUST be set
       // true session duration:
       // will expire after duration (ms)
       // from last session.reset() or
@@ -58,8 +52,5 @@ module.exports = function(app, configurations, express) {
     }
   });
 
-  configurations.app = app;
-  configurations.options = options;
-
-  return configurations;
+  return app;
 };

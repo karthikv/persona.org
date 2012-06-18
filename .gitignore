@@ -1,7 +1,10 @@
 .DS_Store
-settings.js
+local.json
 node_modules
 npm-debug.log
 locale
 public/javascripts/i18n
 apps-min.js
+*.swp
+*.swo
+*.swn

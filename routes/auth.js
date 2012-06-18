@@ -1,9 +1,9 @@
 var auth = require('../lib/authenticate');
 
-module.exports = function(app, settings) {
+module.exports = function(app, nconf) {
   // Login
   app.post('/login', function(req, res) {
-    auth.verify(req, settings, function(error, email) {
+    auth.verify(req, nconf, function(error, email) {
       if (email) {
         req.session.email = email;
       }

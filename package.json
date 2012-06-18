@@ -16,6 +16,7 @@
     "mocha": "0.14.1",
     "should": ">= 0.0.1",
     "nock": "0.10.7",
+    "nconf": "0.6.0",
     "request": "2.9.153",
     "uglify-js": "1.0.6",
     "uglifycss": "0.0.5"

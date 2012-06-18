@@ -2,10 +2,13 @@
 var express = require('express');
 var configurations = module.exports;
 var app = express.createServer();
+var nconf = require('nconf');
 var settings = require('./settings')(app, configurations, express);
 
-// Routes
-require('./routes')(app, settings);
-require('./routes/auth')(app, settings);
+nconf.argv().env().file({ file: 'local.json' });
 
-app.listen(process.env.PORT || settings.options.port);
+// Routes
+require('./routes')(app);
+require('./routes/auth')(app, nconf);
+
+app.listen(process.env.PORT || nconf.get('port'));
